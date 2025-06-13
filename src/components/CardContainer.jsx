@@ -18,11 +18,14 @@ const CardContainer = () => {
     };
     cryptoData();
   }, [page]);
+   useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+  }, []);
 
   const handleScroll = () => {
-    console.log(window.document.documentElement.scrollHeight);
-    console.log(document.documentElement.scrollTop);
-    console.log(window.innerHeight);
+    // console.log(window.document.documentElement.scrollHeight);
+    // console.log(document.documentElement.scrollTop);
+    // console.log(window.innerHeight);
 
     if (
       window.innerHeight + document.documentElement.scrollTop + 1 >=
@@ -33,9 +36,7 @@ const CardContainer = () => {
     }
   };
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-  }, []);
+ 
   return (
     <div className="flex justify-around items-center flex-wrap">
   {card.length === 0 ? (
